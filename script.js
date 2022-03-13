@@ -6,7 +6,9 @@ const loadScreen = document.querySelector(".load");
 const getAdvice = async () => {
   try {
     loadScreen.classList.add("show");
-    const response = await fetch("https://api.adviceslip.com/advice");
+    const response = await fetch("https://api.adviceslip.com/advice", {
+      cache: "no-cache",
+    });
     const adviceJSON = await response.json();
 
     adviceId.innerHTML = adviceJSON.slip.id;
